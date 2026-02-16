@@ -1,0 +1,23 @@
+name: runner-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Check OS
+        run: |
+          echo %COMPUTERNAME%
+          ver
+
+      - name: Check Rust
+        run: |
+          rustc -V
+          cargo -V
+
+      - name: Check MSVC
+        run: |
+          cl
