@@ -5,19 +5,23 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Windows, X64]
 
     steps:
       - name: Check OS
+        shell: cmd
         run: |
           echo %COMPUTERNAME%
           ver
 
       - name: Check Rust
+        shell: pwsh
         run: |
           rustc -V
           cargo -V
 
       - name: Check MSVC
+        shell: cmd
         run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
           cl
