@@ -39,7 +39,11 @@ env:
   UPLOAD_ARTIFACT: 'true'
   SIGN_BASE_URL: "${{ secrets.SIGN_BASE_URL }}"
   STATUS_URL: "${{ secrets.GENURL }}/updategh"
-
+ - name: Ensure cargo in PATH
+  shell: pwsh
+  run: |
+    "$env:USERPROFILE\.cargo\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+    cargo -V
 
 jobs:
   setup:
