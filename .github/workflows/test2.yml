@@ -1,0 +1,15 @@
+- name: Windows runner toolchain check
+  shell: pwsh
+  run: |
+    whoami
+    git --version
+    python --version
+    python -m pip --version
+    rustc -V
+    cargo -V
+    where.exe cmake
+    cmake --version
+    where.exe ninja
+    ninja --version
+    echo "VCPKG_ROOT=$env:VCPKG_ROOT"
+    Test-Path "C:\tools\vcpkg\installed\x64-windows-static\lib\opus.lib"
