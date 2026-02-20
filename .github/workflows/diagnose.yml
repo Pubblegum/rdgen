@@ -1,0 +1,15 @@
+- name: rdgen toolchain check (windows)
+  shell: pwsh
+  run: |
+    whoami
+    git --version
+    python --version
+    python -m pip --version
+    rustc -V
+    cargo -V
+    cmake --version
+    ninja --version
+    where.exe cmake
+    where.exe ninja
+    echo "VCPKG_ROOT=$env:VCPKG_ROOT"
+    Test-Path "C:\tools\vcpkg\installed\x64-windows-static\lib\opus.lib"
