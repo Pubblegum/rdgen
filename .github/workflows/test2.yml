@@ -1,4 +1,4 @@
-- name: Windows runner toolchain check
+- name: rdgen toolchain check (windows)
   shell: pwsh
   run: |
     whoami
@@ -7,9 +7,9 @@
     python -m pip --version
     rustc -V
     cargo -V
-    where.exe cmake
     cmake --version
-    where.exe ninja
     ninja --version
+    where.exe cmake
+    where.exe ninja
     echo "VCPKG_ROOT=$env:VCPKG_ROOT"
     Test-Path "C:\tools\vcpkg\installed\x64-windows-static\lib\opus.lib"
